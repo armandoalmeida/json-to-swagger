@@ -1,0 +1,24 @@
+{
+   "id": "ffe74d36-4f76-4ca6-9dd1-8d5c9b16b056",
+   "name": "JSON example",
+   "description": "Just a simple JSON file to convert into swagger definition",
+   "someObject": {
+      "someInteger": 0,
+      "someNumber": 0.1,
+      "someBoolean": true,
+      "someNull": null,
+      "someString": "Example string content"
+   },
+   "items": [
+      {
+         "name": "Item",
+         "subItem": {
+            "subItemsOfSubItem": [
+               {
+                  "foo": "bar"
+               }
+            ]
+         }
+      }
+   ]
+}
