@@ -123,8 +123,6 @@ definitions:
 
 ## Attention: Properties with same name will be merged
 
-**Note: Properties with the same name will be merged**
-
 ### Example
 In the JSON structure bellow, it has the "items" property in two objects: 
 
