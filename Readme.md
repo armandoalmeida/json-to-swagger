@@ -4,6 +4,10 @@ Python utility created to convert JSON to Swagger definitions structure, based o
 
 ## Dependencies
 * Python 3.6+
+* Libraries:
+  * swagger-parser
+  * pyyaml
+  * pattern
 
 > **Note**: Before run, execute:
 ```bash 
@@ -13,7 +17,7 @@ $ pip install -r requirements.txt
 ## Usage
 Running:
 ```bash 
-$ python json-to-swagger.py <json-file-path> <RootEntityName> [swagger-file-path] [-v]
+$ python main.py <json-file-path> <RootEntityName> [swagger-file-path] [-v]
 ```
 * `json-file-path` - path of json file to convert
 * `RootEntityName` - name of root swagger definitions entity

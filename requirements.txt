@@ -1,3 +1,6 @@
 swagger-parser
 pyyaml
 pattern
+setuptools
+wheel
+twine

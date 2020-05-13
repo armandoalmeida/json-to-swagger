@@ -15,7 +15,11 @@
          "subItem": {
             "subItemsOfSubItem": [
                {
-                  "foo": "bar"
+                  "foo": "firstBar"
+               },
+               {
+                  "foo": "lastBar",
+                  "secondFoo": "secondBar"
                }
             ]
          }
