@@ -1,6 +1,6 @@
 swagger-parser
 pyyaml
-pattern
+inflect
 setuptools
 wheel
 twine

@@ -1,11 +1,11 @@
 import setuptools
 
-with open("README.md", "r") as fh:
+with open("Readme.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
     name="json-to-swagger",
-    version="0.0.1",
+    version="0.0.5",
     author="Jose Armando Almeida Neto",
     author_email="jose@armandoalmeida.com.br",
     description="Python utility created to convert JSON to Swagger definitions structure, based on entities concept.",
@@ -14,7 +14,7 @@ setuptools.setup(
     url="https://github.com/armandoalmeida/json-to-swagger",
     packages=setuptools.find_packages(),
     install_requires=[
-        "swagger-parser", "pyyaml", "pattern"
+        "swagger-parser", "pyyaml", "inflect"
     ],
     classifiers=[
         "Programming Language :: Python :: 3",

@@ -1,12 +1,13 @@
 import re
 import sys
-
-from pattern.en import singularize
+import yaml
+import inflect
 
 
 class Converter:
     swagger_definitions = {}
     verbose = False
+    p = inflect.engine()
 
     def __init__(self, swagger_definitions=None, verbose=None):
         self.swagger_definitions = swagger_definitions if swagger_definitions else {}
@@ -93,6 +94,16 @@ class Converter:
         key_dict.update(prop_dict)
         ref['properties'][key] = key_dict
 
+    def singularize(self, camel_key):
+        """
+        Returns the singular fo the camel key (one or more words)
+        :param camel_key: entity name
+        :return: singular of camel_key
+        """
+        words = self.camel_case_split(camel_key).split(" ")
+        last_word = self.p.singular_noun(words[len(words) - 1])
+        return "".join(words[1:len(words) - 2]) + last_word if last_word else camel_key
+
     def recursive_read_json(self, json_content, swagger_ref, depth=0):
         """
         A recursive function responsible for reading the JSON content and generate swagger definition (dict)
@@ -119,7 +130,7 @@ class Converter:
                 continue
 
             if type(obj_content) is list:
-                camel_key = singularize(camel_key)
+                camel_key = self.singularize(camel_key)
                 self.add_property(key, swagger_ref, {
                     "type": "array",
                     "items": {
@@ -142,3 +153,4 @@ class Converter:
 
     def convert(self, json_content, root_entity="Root"):
         self.recursive_read_json(json_content, root_entity)
+        return yaml.safe_dump(self.swagger_definitions, default_flow_style=False, sort_keys=False)
